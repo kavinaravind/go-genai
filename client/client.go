@@ -58,8 +58,8 @@ func (c *GenAIClient) StartNewChatSession(ctx context.Context, writer *bufio.Wri
 }
 
 // Close closes the client
-func (c *GenAIClient) Close() {
-	c.client.Close()
+func (c *GenAIClient) Close() error {
+	return c.client.Close()
 }
 
 // printResponse prints the response to the writer

@@ -36,7 +36,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer client.Close()
+	defer func() {
+		err := client.Close()
+		if err != nil {
+			log.Fatal(err)
+		}
+	}()
 
 	// Create a new reader and writer
 	reader := bufio.NewReader(os.Stdin)
@@ -50,7 +55,10 @@ func main() {
 	for {
 		fmt.Print("You: ")
 
-		input, _ := reader.ReadString('\n')
+		input, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
 		input = strings.TrimSpace(input)
 
 		switch input {
