@@ -29,4 +29,4 @@ You can start by [Getting an API Key](https://ai.google.dev/gemini-api/docs/api-
 ./chatbot --api-key <API_KEY> # after building the binary via make build
 ```
 
-![chatbot](./assets/chatbot.mp4)
+![chatbot](https://github.com/kavinaravind/go-genai/blob/main/assets/chatbot.mp4)
